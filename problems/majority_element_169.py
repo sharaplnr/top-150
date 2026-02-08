@@ -25,6 +25,8 @@ class Solution:
             if count_num > condition:
                 return num
 
+        return -1
+
 
 
 
