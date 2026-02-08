@@ -19,7 +19,21 @@ Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
 class Solution:
 
     def remove_duplicates(self, nums: list):
-        pass
+        p1, p2 = 0, 1
+
+        len_nums = len(nums)
+
+        while p2 < len_nums:
+            if nums[p1] == nums[p2]:
+                del nums[p2]
+                nums.append('_')
+                len_nums-=1
+            else:
+                p1 = p2
+                p2 += 1
+
+        return p2
 
 s = Solution()
-print(s.remove_duplicates([0,0,1,1,1,2,2,3,3,4]))
+print(s.remove_duplicates([0,1,1,1,2,2,3,3,4]))
+print(s.remove_duplicates([1,1,2]))
